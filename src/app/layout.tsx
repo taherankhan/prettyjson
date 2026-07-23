@@ -27,12 +27,13 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
     metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://jsonmint.onrender.com"),
     title: {
-        default: "JSON Formatter & Validator — Free Online Tool",
-        template: "%s | JSON Formatter",
+        default: "JSONMint — Free Online JSON Formatter & Validator",
+        template: "%s | JSONMint",
     },
     description:
-        "Free online JSON formatter, validator, and beautifier. Format, minify, and lint JSON instantly. No signup required. Lightning fast.",
+        "JSONMint is a free online JSON formatter, validator, and beautifier. Format, minify, and lint JSON instantly. No signup required. Lightning fast.",
     keywords: [
+        "jsonmint",
         "json formatter",
         "json validator",
         "json beautifier",
@@ -45,18 +46,18 @@ export const metadata: Metadata = {
         "json to string",
     ],
     openGraph: {
-        title: "JSON Formatter & Validator — Free Online Tool",
-        description: "Format, validate, and minify JSON instantly. Fast, free, no signup.",
+        title: "JSONMint — Free Online JSON Formatter & Validator",
+        description: "Format, validate, and minify JSON instantly with JSONMint. Fast, free, no signup.",
         url: "https://jsonmint.onrender.com",
-        siteName: "JSON Formatter",
-        images: [{url: "/og-image.png", width: 1200, height: 630, alt: "JSON Formatter Tool"}],
+        siteName: "JSONMint",
+        images: [{url: "/og-image.png", width: 1200, height: 630, alt: "JSONMint Tool"}],
         locale: "en_US",
         type: "website",
     },
     twitter: {
         card: "summary_large_image",
-        title: "JSON Formatter & Validator",
-        description: "Format, validate, and minify JSON online. Free tool.",
+        title: "JSONMint — Free Online JSON Formatter & Validator",
+        description: "Format, validate, and minify JSON online with JSONMint. Free tool.",
         images: ["/og-image.png"],
     },
     robots: {
@@ -80,12 +81,12 @@ export const metadata: Metadata = {
 const jsonLd = {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    name: "JSON Formatter & Validator",
+    name: "JSONMint",
     applicationCategory: "DeveloperApplication",
     operatingSystem: "Web",
     offers: {"@type": "Offer", price: "0", priceCurrency: "USD"},
     featureList: ["JSON Formatter", "JSON Validator", "JSON Minifier"],
-    url: "https://jsonformatter.app",
+    url: "https://jsonmint.onrender.com",
 };
 
 export default function RootLayout({children}: {children: React.ReactNode}) {

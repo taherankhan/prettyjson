@@ -1,4 +1,4 @@
-# JSON Formatter & Validator
+# JSONMint — Free Online JSON Formatter & Validator
 
 **Free online JSON formatter, beautifier, validator, and minifier — fast, private, and built for developers.**
 
