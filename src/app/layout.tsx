@@ -1,7 +1,7 @@
 import type {Metadata} from "next";
 import {Inter, Space_Grotesk, JetBrains_Mono} from "next/font/google";
+import { GoogleAnalytics } from "@next/third-parties/google";
 import ThemeProvider from "@/components/ThemeProvider";
-import DeferredAnalytics from "@/components/DeferredAnalytics";
 import "./globals.css";
 
 const inter = Inter({
@@ -100,7 +100,7 @@ export default function RootLayout({children}: {children: React.ReactNode}) {
             </head>
             <body>
                 <ThemeProvider>{children}</ThemeProvider>
-                <DeferredAnalytics gaId="G-XYBE76CFSZ" />
+                <GoogleAnalytics gaId="G-XYBE76CFSZ" />
             </body>
         </html>
     );
