@@ -1,0 +1,171 @@
+/* ============================================================
+   Navbar styles
+   ============================================================ */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: var(--navbar-bg);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  transition: transform 0.25s ease-in-out, opacity 0.25s ease-in-out, background 0.15s ease, border-color 0.15s ease;
+}
+
+.navbarHidden {
+  transform: translateY(-100%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 0 24px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+.logoIcon {
+  width: 32px;
+  height: 32px;
+  background: linear-gradient(135deg, var(--accent), var(--purple));
+  border-radius: var(--radius-sm);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: 800;
+  color: #0a0a0f;
+}
+
+.logoText {
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.3px;
+}
+
+.logoText span {
+  color: var(--accent);
+}
+
+/* Nav links */
+.links {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.link {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all var(--transition);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.link:hover {
+  color: var(--text-primary);
+  background: var(--bg-elevated);
+}
+
+.githubLink {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all var(--transition);
+  background: transparent;
+  cursor: pointer;
+  margin-left: 8px;
+  border: 1px solid var(--border-bright);
+}
+
+.githubLink:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.navLink {
+  background: transparent;
+  border: none;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.navLink:hover {
+  color: var(--text-primary);
+  background: var(--bg-hover);
+}
+
+.divider {
+  width: 1px;
+  height: 16px;
+  background: var(--border-bright);
+  margin: 0 8px;
+}
+
+.progressBar {
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--purple) 100%);
+  transform-origin: left;
+  transition: transform 0.1s ease-out;
+  box-shadow: 0 0 8px var(--accent);
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .links {
+    gap: 2px;
+  }
+
+  .logoText {
+    display: none;
+  }
+
+  .link span {
+    display: none;
+  }
+
+  .navLink {
+    display: none;
+  }
+
+  .divider {
+    display: none;
+  }
+}

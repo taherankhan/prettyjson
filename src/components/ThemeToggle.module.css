@@ -1,0 +1,67 @@
+.toggle {
+  display: flex;
+  align-items: center;
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-bright);
+  border-radius: var(--radius-md);
+  padding: 3px;
+  gap: 2px;
+  position: relative;
+}
+
+.option {
+  position: relative;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: calc(var(--radius-md) - 3px);
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+/* The sliding active pill */
+.activePill {
+  position: absolute;
+  inset: 0;
+  background: var(--bg-surface);
+  border-radius: calc(var(--radius-md) - 3px);
+  border: 1px solid var(--border-bright);
+  box-shadow: var(--shadow-sm);
+  z-index: 0;
+}
+
+.optionInner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 5px 10px;
+  font-size: 12px;
+  font-weight: 500;
+  font-family: var(--font-sans);
+  color: var(--text-muted);
+  border-radius: calc(var(--radius-md) - 3px);
+  white-space: nowrap;
+  transition: color 0.15s ease;
+  user-select: none;
+}
+
+.optionActive {
+  color: var(--text-primary);
+}
+
+.option:hover .optionInner {
+  color: var(--text-secondary);
+}
+
+.option:hover .optionActive {
+  color: var(--text-primary);
+}
+
+/* Hide label on small screens, show only icon */
+@media (max-width: 700px) {
+  .label { display: none; }
+  .optionInner { padding: 5px 7px; }
+}

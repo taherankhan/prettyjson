@@ -1,0 +1,93 @@
+.intro {
+  position: relative;
+  --px: 0;
+  --py: 0;
+  --gx: 50%;
+  --gy: 50%;
+}
+
+.glow {
+  position: absolute;
+  top: -20px;
+  left: -40px;
+  width: 320px;
+  height: 200px;
+  background: radial-gradient(
+    ellipse at calc(50% + var(--px) * 80%) calc(50% + var(--py) * 60%),
+    rgba(0, 212, 170, 0.18),
+    rgba(124, 111, 255, 0.1) 45%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+  z-index: 0;
+  filter: blur(8px);
+}
+
+.intro[data-active='true'] .glow {
+  opacity: 1;
+}
+
+.eyebrow {
+  position: relative;
+  z-index: 1;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.intro[data-active='true'] .eyebrow {
+  border-color: rgba(0, 212, 170, 0.45);
+  box-shadow: 0 0 20px rgba(0, 212, 170, 0.2);
+}
+
+.intro :global(h1),
+.intro h1 {
+  position: relative;
+  z-index: 1;
+}
+
+.line1,
+.line2 {
+  display: inline-block;
+  transition: transform 0.15s ease-out;
+  will-change: transform;
+}
+
+.line1 {
+  transform: translate3d(
+    calc(var(--px) * -10px),
+    calc(var(--py) * -6px),
+    0
+  );
+}
+
+.line2 {
+  transform: translate3d(
+    calc(var(--px) * 12px),
+    calc(var(--py) * 8px),
+    0
+  );
+}
+
+.accent {
+  background-size: 220% 220% !important;
+  background-position: var(--gx) var(--gy) !important;
+  transition: filter 0.3s ease;
+  filter: drop-shadow(0 0 0 transparent);
+}
+
+.intro[data-active='true'] .accent {
+  filter: drop-shadow(0 0 18px rgba(0, 212, 170, 0.35));
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .line1,
+  .line2 {
+    transform: none !important;
+    transition: none;
+  }
+
+  .intro[data-active='true'] .accent {
+    filter: none;
+  }
+}

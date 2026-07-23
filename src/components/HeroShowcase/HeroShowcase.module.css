@@ -1,0 +1,151 @@
+@property --border-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.showcase {
+  flex: 0.8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  min-width: 320px;
+  width: 100%;
+  max-width: 480px;
+}
+
+/* 3D hover zone — editor only */
+.editorStage {
+  position: relative;
+  width: 100%;
+  perspective: 1100px;
+  --mx: 50%;
+  --my: 50%;
+  --rx: 0deg;
+  --ry: 0deg;
+}
+
+.spotlight {
+  position: absolute;
+  inset: -20px;
+  border-radius: 16px;
+  background: radial-gradient(480px circle at var(--mx) var(--my),
+      rgba(0, 212, 170, 0.35),
+      rgba(124, 111, 255, 0.12) 35%,
+      transparent 55%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.editorStage[data-active='true'] .spotlight {
+  opacity: 1;
+}
+
+.borderGlow {
+  position: absolute;
+  inset: -3px;
+  border-radius: 14px;
+  padding: 2px;
+  background: conic-gradient(from var(--border-angle),
+      #00d4aa,
+      #7c6fff,
+      #00f0c0,
+      #a78bfa,
+      #00d4aa);
+  opacity: 0;
+  z-index: 0;
+  pointer-events: none;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  animation: spinBorder 4s linear infinite;
+  transition: opacity 0.35s ease;
+}
+
+.editorStage[data-active='true'] .borderGlow {
+  opacity: 1;
+}
+
+.editorInner {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  border-radius: 14px;
+  overflow: hidden;
+  transform: rotateX(var(--rx)) rotateY(var(--ry));
+  transform-style: preserve-3d;
+  transition: transform 0.12s ease-out, box-shadow 0.35s ease;
+  will-change: transform;
+}
+
+.editorStage[data-active='true'] .editorInner {
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.45),
+    0 0 40px rgba(0, 212, 170, 0.15),
+    0 0 80px rgba(124, 111, 255, 0.1);
+  transform: rotateX(var(--rx)) rotateY(var(--ry)) translateZ(18px);
+}
+
+.shine {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(105deg,
+      transparent 38%,
+      rgba(255, 255, 255, 0.07) 48%,
+      rgba(255, 255, 255, 0.14) 50%,
+      rgba(255, 255, 255, 0.07) 52%,
+      transparent 62%);
+  transform: translateX(-120%);
+  opacity: 0;
+}
+
+.editorStage[data-active='true'] .shine {
+  opacity: 1;
+  animation: shineSweep 2.8s ease-in-out infinite;
+}
+
+@keyframes spinBorder {
+  to {
+    --border-angle: 360deg;
+  }
+}
+
+@keyframes shineSweep {
+  0% {
+    transform: translateX(-120%);
+  }
+
+  45%,
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .editorInner {
+    transform: none !important;
+    transition: none;
+  }
+
+  .borderGlow,
+  .shine {
+    animation: none !important;
+  }
+
+  .editorStage[data-active='true'] .editorInner {
+    transform: none;
+  }
+}
+
+@media (max-width: 900px) {
+  .showcase {
+    max-width: 100%;
+  }
+}

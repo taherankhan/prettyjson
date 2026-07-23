@@ -1,0 +1,227 @@
+@property --profile-border-angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}
+
+.stage {
+  position: relative;
+  perspective: 1000px;
+  --mx: 50%;
+  --my: 50%;
+  --rx: 0deg;
+  --ry: 0deg;
+}
+
+.spotlight {
+  position: absolute;
+  inset: -16px;
+  border-radius: calc(var(--radius-lg) + 4px);
+  background: radial-gradient(400px circle at var(--mx) var(--my),
+      rgba(0, 212, 170, 0.28),
+      rgba(124, 111, 255, 0.12) 40%,
+      transparent 58%);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.stage[data-active='true'] .spotlight {
+  opacity: 1;
+}
+
+.borderGlow {
+  position: absolute;
+  inset: -2px;
+  border-radius: calc(var(--radius-lg) + 2px);
+  padding: 2px;
+  background: conic-gradient(from var(--profile-border-angle),
+      #00d4aa,
+      #7c6fff,
+      #00f0c0,
+      #ff007f,
+      #00d4aa);
+  opacity: 0;
+  z-index: 0;
+  pointer-events: none;
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask-composite: exclude;
+  -webkit-mask-composite: xor;
+  animation: spinProfileBorder 5s linear infinite;
+  transition: opacity 0.35s ease;
+}
+
+.stage[data-active='true'] .borderGlow {
+  opacity: 1;
+}
+
+.card {
+  position: relative;
+  z-index: 1;
+  transition: box-shadow 0.35s ease;
+}
+
+.tiltZone {
+  transform: rotateX(var(--rx)) rotateY(var(--ry));
+  transform-style: preserve-3d;
+  transition: transform 0.12s ease-out;
+  will-change: transform;
+}
+
+.stage[data-active='true'] .card {
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.35),
+    0 0 36px rgba(0, 212, 170, 0.12),
+    0 0 60px rgba(124, 111, 255, 0.08);
+}
+
+.stage[data-active='true'] .tiltZone {
+  transform: rotateX(var(--rx)) rotateY(var(--ry)) translateZ(12px);
+}
+
+.avatarWrap {
+  position: relative;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.avatarRing {
+  position: absolute;
+  inset: -4px;
+  border-radius: 50%;
+  background: conic-gradient(from var(--profile-border-angle), #00d4aa, #7c6fff, #ff007f, #00d4aa);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  animation: spinProfileBorder 3s linear infinite;
+  z-index: 0;
+}
+
+.avatarRing::after {
+  content: '';
+  position: absolute;
+  inset: 3px;
+  border-radius: 50%;
+  background: var(--bg-primary);
+}
+
+.stage[data-active='true'] .avatarWrap {
+  transform: scale(1.08) translateZ(16px);
+}
+
+.stage[data-active='true'] .avatarRing {
+  opacity: 1;
+}
+
+.avatarWrap img {
+  position: relative;
+  z-index: 1;
+}
+
+.profileName {
+  transition: background-position 0.15s ease, filter 0.3s ease;
+  background-size: 200% auto !important;
+}
+
+.stage[data-active='true'] .profileName {
+  background: linear-gradient(90deg, var(--text-primary), var(--accent), var(--purple), var(--text-primary));
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: nameShimmer 3s linear infinite;
+  filter: drop-shadow(0 0 12px rgba(0, 212, 170, 0.3));
+}
+
+.techRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  position: relative;
+  z-index: 2;
+}
+
+.techBadge {
+  position: relative;
+  cursor: default;
+  transition:
+    transform 0.2s cubic-bezier(0.34, 1.56, 0.64, 1),
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    color 0.2s ease,
+    background-color 0.2s ease;
+}
+
+.techBadge:hover {
+  transform: translateY(-4px) scale(1.08);
+  border-color: rgba(0, 212, 170, 0.55) !important;
+  color: var(--accent) !important;
+  background: rgba(0, 212, 170, 0.1) !important;
+  box-shadow: 0 8px 20px rgba(0, 212, 170, 0.22);
+}
+
+.techBadge:nth-child(2):hover {
+  border-color: rgba(124, 111, 255, 0.55) !important;
+  color: var(--purple) !important;
+  background: rgba(124, 111, 255, 0.1) !important;
+  box-shadow: 0 8px 20px rgba(124, 111, 255, 0.22);
+}
+
+.techBadge:nth-child(4):hover {
+  border-color: rgba(124, 111, 255, 0.55) !important;
+  color: var(--purple) !important;
+  background: rgba(124, 111, 255, 0.1) !important;
+  box-shadow: 0 8px 20px rgba(124, 111, 255, 0.22);
+}
+
+.githubBtn {
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background-color 0.25s ease !important;
+}
+
+.githubBtn:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent) !important;
+  background: rgba(0, 212, 170, 0.08) !important;
+  box-shadow: 0 8px 24px rgba(0, 212, 170, 0.2);
+}
+
+@keyframes spinProfileBorder {
+  to {
+    --profile-border-angle: 360deg;
+  }
+}
+
+@keyframes nameShimmer {
+  to {
+    background-position: 200% center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+  .card,
+  .tiltZone,
+  .avatarWrap,
+  .techBadge,
+  .githubBtn {
+    transform: none !important;
+    transition: none;
+  }
+
+  .borderGlow,
+  .avatarRing,
+  .profileName {
+    animation: none !important;
+  }
+
+  .stage[data-active='true'] .profileName {
+    -webkit-text-fill-color: unset;
+    background: none;
+    filter: none;
+  }
+}
