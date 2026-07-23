@@ -73,7 +73,7 @@ export const metadata: Metadata = {
         canonical: "https://jsonformatter.app",
     },
     verification: {
-        google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION || "",
+        google: "tU2oi6TLTRHpb5p2A9tVLbjFLDiZUYwqqRLgx3BdiOg",
     },
 };
 
