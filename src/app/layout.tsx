@@ -25,7 +25,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://jsonformatter.app"),
+    metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://jsonmint.onrender.com"),
     title: {
         default: "JSON Formatter & Validator — Free Online Tool",
         template: "%s | JSON Formatter",
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
     openGraph: {
         title: "JSON Formatter & Validator — Free Online Tool",
         description: "Format, validate, and minify JSON instantly. Fast, free, no signup.",
-        url: "https://jsonformatter.app",
+        url: "https://jsonmint.onrender.com",
         siteName: "JSON Formatter",
         images: [{url: "/og-image.png", width: 1200, height: 630, alt: "JSON Formatter Tool"}],
         locale: "en_US",
@@ -70,7 +70,7 @@ export const metadata: Metadata = {
         },
     },
     alternates: {
-        canonical: "https://jsonformatter.app",
+        canonical: "https://jsonmint.onrender.com",
     },
     verification: {
         google: "tU2oi6TLTRHpb5p2A9tVLbjFLDiZUYwqqRLgx3BdiOg",
