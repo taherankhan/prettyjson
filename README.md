@@ -2,14 +2,14 @@
 
 **Free online JSON formatter, beautifier, validator, and minifier — fast, private, and built for developers.**
 
-[![Live Demo](https://img.shields.io/badge/demo-jsonformatter.app-00d4aa?style=for-the-badge)](https://jsonformatter.app)
+[![Live Demo](https://img.shields.io/badge/demo-jsonmint.onrender.com-00d4aa?style=for-the-badge)](https://jsonmint.onrender.com/)
 [![Next.js](https://img.shields.io/badge/Next.js-16-black?style=flat-square&logo=next.js)](https://nextjs.org)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=flat-square&logo=typescript&logoColor=white)](https://www.typescriptlang.org)
 [![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=black)](https://react.dev)
 
 > Paste JSON → beautify, validate, or minify instantly. No signup. No server uploads. Everything runs in your browser.
 
-**[Try it live → jsonformatter.app](https://jsonformatter.app)**
+**[Try it live → jsonmint.onrender.com](https://jsonmint.onrender.com/)** | **[GitHub Repository](https://github.com/taherankhan/prettyjson)**
 
 ---
 
@@ -24,7 +24,6 @@
 - [Scripts](#scripts)
 - [Deploy](#deploy)
 - [FAQ](#faq)
-- [Repository Topics](#repository-topics)
 
 ---
 
@@ -125,7 +124,7 @@ Create a `.env.local` in the project root:
 
 ```env
 # Site URL (used for sitemap, canonical URLs, OG tags)
-NEXT_PUBLIC_SITE_URL=https://jsonformatter.app
+NEXT_PUBLIC_SITE_URL=https://jsonmint.onrender.com
 
 # Optional — Google Search Console verification
 NEXT_PUBLIC_GOOGLE_VERIFICATION=
@@ -151,12 +150,13 @@ The **JSON formatter, validator, and minifier work fully without MongoDB**. Mong
 
 ## Deploy
 
-Deploy anywhere that supports Next.js 16:
+Deployed on **[Render](https://render.com)** as a Node Web Service:
 
-- **[Vercel](https://vercel.com)** — recommended (zero-config for Next.js)
-- Docker / Node hosting with `npm run build && npm start`
+- **Live URL:** [https://jsonmint.onrender.com/](https://jsonmint.onrender.com/)
+- **Build Command:** `npm run build`
+- **Start Command:** `npm run start`
 
-Set `NEXT_PUBLIC_SITE_URL` to your production domain so sitemap and metadata stay correct.
+Set `NEXT_PUBLIC_SITE_URL` to `https://jsonmint.onrender.com` in environment variables so sitemap and metadata stay correct.
 
 ---
 
@@ -199,36 +199,13 @@ No. Open the site and start formatting — completely free, no login required.
 
 ---
 
-## Repository Topics
-
-Add these [GitHub topics](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/classifying-your-repository-with-topics) to improve discoverability when developers search for formatter tools:
-
-```
-json
-json-formatter
-json-validator
-json-beautifier
-json-minifier
-json-pretty-print
-json-lint
-format-json
-validate-json
-online-json-tool
-nextjs
-typescript
-monaco-editor
-developer-tools
-open-source
-```
-
----
-
 ## Author
 
 Built by **[Taherankhan](https://github.com/taherankhan)** — Full-Stack Developer.
 
-- **Live app:** [jsonformatter.app](https://jsonformatter.app)
+- **Live app:** [https://jsonmint.onrender.com/](https://jsonmint.onrender.com/)
 - **GitHub:** [@taherankhan](https://github.com/taherankhan)
+- **Repository:** [https://github.com/taherankhan/prettyjson](https://github.com/taherankhan/prettyjson)
 
 ---
 
