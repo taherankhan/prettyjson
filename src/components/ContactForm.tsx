@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import { supabase } from '@/lib/supabase';
 import styles from '@/app/page.module.css';
 
 export default function ContactForm() {
@@ -16,8 +15,13 @@ export default function ContactForm() {
     setSubmitting(true);
     setSubmitStatus('idle');
     try {
-      const { error } = await supabase.from('contact_messages').insert([{ email, message }]);
-      if (error) {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email, message }),
+      });
+
+      if (!res.ok) {
         setSubmitStatus('error');
       } else {
         setSubmitStatus('success');
@@ -31,6 +35,7 @@ export default function ContactForm() {
       setSubmitting(false);
     }
   };
+
 
   return (
     <form onSubmit={handleSubmit} className={styles.footerForm}>

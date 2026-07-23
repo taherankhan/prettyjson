@@ -113,7 +113,7 @@ npm start
 | UI | [React 19](https://react.dev) + CSS Modules |
 | Editor | [Monaco Editor](https://microsoft.github.io/monaco-editor/) |
 | State | [Zustand](https://zustand.docs.pmnd.rs) |
-| Feedback | [Supabase](https://supabase.com) (optional contact form) |
+| Feedback | [MongoDB Atlas](https://www.mongodb.com/atlas) + Next.js API Route |
 | Analytics | Google Analytics (deferred, idle-loaded) |
 | Language | TypeScript |
 
@@ -130,12 +130,11 @@ NEXT_PUBLIC_SITE_URL=https://jsonformatter.app
 # Optional — Google Search Console verification
 NEXT_PUBLIC_GOOGLE_VERIFICATION=
 
-# Optional — contact form only (core JSON tool works without these)
-NEXT_PUBLIC_SUPABASE_URL=
-NEXT_PUBLIC_SUPABASE_ANON_KEY=
+# MongoDB Atlas Connection URI (for contact/feedback form)
+MONGODB_URI=mongodb+srv://<username>:<password>@cluster0.xxx.mongodb.net/jsonformatter?retryWrites=true&w=majority
 ```
 
-The **JSON formatter, validator, and minifier work fully without Supabase**. Supabase is only used for the optional feedback form.
+The **JSON formatter, validator, and minifier work fully without MongoDB**. MongoDB is only used for the optional feedback submission API.
 
 ---
 

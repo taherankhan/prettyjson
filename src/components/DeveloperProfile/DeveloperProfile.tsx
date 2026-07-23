@@ -10,10 +10,10 @@ const MANIFEST = [
   { key: 'state_store', value: 'Zustand (Client State)' },
   { key: 'validation', value: 'real-time (line-by-line)' },
   { key: 'security', value: '100% client-side (no uploads)' },
-  { key: 'database', value: 'Supabase' },
+  { key: 'database', value: 'MongoDB Atlas' },
 ];
 
-const TECH = ['React', 'TypeScript', 'Next.js', 'Zustand', 'Supabase'];
+const TECH = ['React', 'TypeScript', 'Next.js', 'Zustand', 'MongoDB'];
 
 export default function DeveloperProfile() {
   const ref = useRef<HTMLDivElement>(null);
