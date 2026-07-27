@@ -9,7 +9,7 @@
 
 > Paste JSON → beautify, validate, or minify instantly. No signup. No server uploads. Everything runs in your browser.
 
-**[Try it live → jsonmint.onrender.com](https://jsonmint.onrender.com/)** | **[GitHub Repository](https://github.com/taherankhan/prettyjson)**
+**[Try it live → jsonmint.onrender.com](https://jsonmint.onrender.com/)** | **[Read Article on Hashnode](https://taherankhan.hashnode.dev/why-i-built-my-own-json-formatter-and-say-goodbye-to-ad-heavy-alternatives)** | **[GitHub Repository](https://github.com/taherankhan/prettyjson)**
 
 ---
 
@@ -204,6 +204,7 @@ No. Open the site and start formatting — completely free, no login required.
 Built by **[Taherankhan](https://github.com/taherankhan)** — Full-Stack Developer.
 
 - **Live app:** [https://jsonmint.onrender.com/](https://jsonmint.onrender.com/)
+- **Article:** [Why I Built My Own JSON Formatter (And Say Goodbye to Ad-Heavy Alternatives)](https://taherankhan.hashnode.dev/why-i-built-my-own-json-formatter-and-say-goodbye-to-ad-heavy-alternatives)
 - **GitHub:** [@taherankhan](https://github.com/taherankhan)
 - **Repository:** [https://github.com/taherankhan/prettyjson](https://github.com/taherankhan/prettyjson)
 
